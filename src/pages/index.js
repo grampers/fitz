@@ -194,10 +194,10 @@ class Home extends React.Component {
           </p>
           <p>
             I have 10 plus years of experience as a Copywriter in the Radio
-            business…and an additional 13 years as a licensed Realtor, I managed
-            all my own Marketing and copywriting…with some assistance from my
-            son Corey. My experience includes both Project-to-Project and day to
-            day time lines.
+            business …and, an additional 13 years as a licensed Realtor, during
+            which time I managed all my own Marketing and copywriting …along
+            with some assistance from my son Corey. My experience includes both
+            Project-to-Project and Day to Day time lines.
           </p>
         </PrimaryContent>
 

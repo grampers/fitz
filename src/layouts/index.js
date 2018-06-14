@@ -19,9 +19,7 @@ const TemplateWrapper = styled.div`
 export default class extends React.Component {
   render(props) {
     const { children, data } = this.props;
-    {
-      console.log('props.data ', this.props);
-    }
+
     return (
       <TemplateWrapper>
         <Helmet
@@ -38,9 +36,9 @@ export default class extends React.Component {
             }
           ]}
         />
-
-        <Header headshotImage={this.props.data.headshotImage} />
-        <Container>{children()}</Container>
+        <Header />
+        {/* {this.props.location.pathname === '/' ? <Header /> : ''} */}
+        <Container>{this.props.children()}</Container>
       </TemplateWrapper>
     );
   }
@@ -50,9 +48,9 @@ TemplateWrapper.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query HeadshotImageQuery {
-    headshotImage: imageSharp(id: { regex: "/m_fitzpatrick/" }) {
-      sizes(maxWidth: 600) {
+  query HeaderImageQuery {
+    headerImage: imageSharp(id: { regex: "/header/" }) {
+      sizes(maxWidth: 740) {
         ...GatsbyImageSharpSizes
       }
     }

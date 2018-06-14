@@ -3,7 +3,6 @@ import Link from 'gatsby-link';
 import headshot from '.././assets/images/m_fitzpatrick.png';
 import logo from '.././assets/images/mf_logo_600.png';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 
 const Header = styled.div`
   display: flex;
@@ -33,18 +32,12 @@ const Header = styled.div`
   }
 `;
 
-export default (props, { siteTitle }) => {
+export default props => {
   return (
     <Header>
       <div id="headshot">
         <Link to="/">
           <img src={headshot} id="headshot" alt="Mary Fitzpatrick" />
-          {/* <Img
-            sizes={props.headshotImage.sizes}
-            title="Mary Picture"
-            id="headshot"
-            alt="Mary Fitzpatrick"
-          /> */}
         </Link>
       </div>
       <div id="logo">
