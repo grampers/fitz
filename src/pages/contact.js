@@ -19,6 +19,7 @@ export default () => {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        hifdden
       >
         <div>
           <label htmlFor="name">Name </label>
@@ -36,7 +37,10 @@ export default () => {
             placeholder="Please include your contact phone number in your message"
           />
         </div>
-        <input type="hidden" name="bot-field" />
+        <label style={{ display: 'none' }}>
+          Not for humans
+          <input name="bot-field" />
+        </label>
 
         <div className="actions">
           <div>

@@ -13,16 +13,6 @@ const Form = styled.form`
     border-radius: 5px;
     border: 1px solid gold;
     box-sizing: border-box;
-
-    ${'' /* border: 2px solid gold;
-    padding-bottom: 0;
-    margin: 20px auto;
-    max-width: 600px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    resize: vertical;
-    background-color: #ffffff;*/};
     margin: 0 auto;
     width: 100%;
   }
@@ -91,8 +81,7 @@ export default () => (
           placeholder="Please include your contact phone number in your message"
         />
       </div>
-      <input type="hidden" name="bot-field" />
-
+      <input type="hidden" name="form-name" value="contact" />
       <div className="actions">
         <div>
           <input type="submit" value="Send Message" className="special" />
