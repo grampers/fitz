@@ -64,6 +64,7 @@ export default () => (
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      hidden
     >
       <div>
         <label htmlFor="name">Name </label>
@@ -82,6 +83,10 @@ export default () => (
         />
       </div>
       <input type="hidden" name="form-name" value="contact" />
+      <label style={{ display: 'none' }}>
+        Not for humans
+        <input name="bot-field" />
+      </label>
       <div className="actions">
         <div>
           <input type="submit" value="Send Message" className="special" />

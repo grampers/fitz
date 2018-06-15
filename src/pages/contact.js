@@ -19,7 +19,7 @@ export default () => {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        hifdden
+        hidden
       >
         <div>
           <label htmlFor="name">Name </label>
