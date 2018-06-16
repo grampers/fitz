@@ -22,15 +22,15 @@ export default () => {
         hidden
       >
         <div>
-          <label htmlFor="name">Name </label>
+          <label htmlFor="name">Name&nbsp;&#42; </label>
           <input type="text" name="name" id="name" />
         </div>
         <div>
-          <label htmlFor="email">Email </label>
+          <label htmlFor="email">Email&nbsp;&#42; </label>
           <input type="text" name="email" id="email" />
         </div>
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Message&nbsp;&#42;</label>
           <textarea
             name="message"
             id="message"
@@ -55,6 +55,7 @@ export default () => {
               share it with anyone without your consent.{' '}
             </p>{' '}
           </div>
+          <p style={{ fontSize: '80%' }}>&#42; required field</p>
         </div>
       </form>
     </Contact>
