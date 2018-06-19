@@ -400,10 +400,15 @@ export const query = graphql`
   query ImagesQuery {
     # the filter is usefull if you have multiple source-filesystem instances
     # the name "images" is set in the gatsby-config
-    allFile(filter: { sourceInstanceName: { eq: "img" } }) {
+
+    allFile(
+      filter: { sourceInstanceName: { eq: "img" } }
+      sort: { fields: [name], order: ASC }
+    ) {
       edges {
         node {
           id
+          name
           childImageSharp {
             # Specify the image processing specifications right in the query.
             # Makes it trivial to update as your page's design changes.
