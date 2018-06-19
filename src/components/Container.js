@@ -6,6 +6,7 @@ const Container = styled.div`
   padding: 20px;
   background-color: #01865b;
   font-style: italic;
+  border-radius: 20px;
 
   @media only screen and (max-width: 930px) {
     #headshot {

@@ -1,8 +1,10 @@
 import React from 'react';
 import Form from '../components/Form';
+import Img from 'gatsby-image';
+import Gallery from 'react-grid-gallery';
+
 import signature from '.././assets/images/sig.png';
 import shamrock from '.././assets/images/shamrock.png';
-import { CSSTransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
 const PrimaryContent = styled.div`
@@ -24,25 +26,6 @@ const Modal = styled.div`
   ${'' /* padding-bottom: 0;*/}
   line-height:200%;
 
-  .EnterTransition-enter {
-    opacity: 0.0;
-    transform: translateY(-80px);
-  }
-  .EnterTransition-enter.EnterTransitionenter-active {
-    opacity: 1;
-    transform: translateY(0px);
-    transition: all 1s ease-out;
-  }
-  .EnterTransition-leave {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-  .EnterTransition-leave.EnterTransition-leave-acctive {
-    opacity: 0.01;
-    transform: translateX(80px);
-    transition: all 1.0s ease-in;
-  }
-
   .intro {
     font-style:normal;
     font-weight: 600;
@@ -54,13 +37,13 @@ const Modal = styled.div`
   &#specimens {
     grid-column: 2 / span 1;
     grid-row: 3 / span 1;
-
   }
+
   &#art {
-    ${'' /* grid-column: 2 / span 1;
-    grid-row: 7 / span 1;*/}
+    overflow: auto;
     padding-top: 1px;
-    text-align: center;
+    margin: 0 auto;
+    ${'' /* text-align: center;*/}
     border-bottom: 2px solid gold;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -77,13 +60,12 @@ const Modal = styled.div`
     font-weight: bolder;
     cursor: pointer;
     color: #006400;
-
   }
   a#close {
     font-weight: 400;
     float: right;
-
   }
+
   ul {
     width: 80%;
     list-style-type: none;
@@ -96,11 +78,6 @@ const Modal = styled.div`
     padding: 20px;
     padding-top: 10px;
     margin-bottom: 2rem;
-  }
-  @media only screen and (max-width: 435px) {
-    &#art {
-      display:none;
-    }
   }
 `;
 
@@ -147,6 +124,11 @@ const SignatureBlock = styled.div`
     height: 65px;
     padding-left: 1.5rem;
   }
+
+  > div a {
+    cursor: pointer;
+    color: #006400;
+  }
 `;
 
 class Home extends React.Component {
@@ -165,27 +147,33 @@ class Home extends React.Component {
   }
 
   toggleSpecimens = () => {
-    console.log('clicked the speciemens toggle');
     this.setState({ showSpecimens: !this.state.showSpecimens });
   };
 
   toggleArt = () => {
-    console.log('clicked the art toggle');
     this.setState({ showArt: !this.state.showArt });
   };
 
   toggleContact = () => {
-    console.log('clicked the contact toggle');
     this.setState({ showContact: !this.state.showContact });
   };
 
-  render() {
+  render(props) {
+    const { data } = this.props;
+    const photos = data.allFile.edges;
+    // console.log('photos: ', photos);
+    // console.log('photos array: ', Array.isArray(photos));
+
+    const revisedPhotoArray = photos.map(img => {
+      img.src = img.node.childImageSharp.sizes.src;
+      img.thumbnail = img.node.childImageSharp.sizes.src;
+      return img;
+    });
+    // console.log('modified array is ', revisedPhotoArray);
+
     return (
       <div>
-        {/* <Header /> */}
-
         <PrimaryContent>
-          {/* <section id="section"> */}
           <p>I am a Freelance Copywriter.</p>
 
           <p>
@@ -201,16 +189,6 @@ class Home extends React.Component {
           </p>
         </PrimaryContent>
 
-        {/* </section> */}
-
-        {/* <CSSTransitionGroup
-          transitionName="EnterTransition"
-          transitionAppear={false}
-          transitionenter={true}
-          transitionEnterTimeout={1000}
-          transitionLeave={true}
-          transitionLeaveTimeout={1000}
-        > */}
         <Modal id="specimens">
           {!this.state.showSpecimens ? (
             <a onClick={this.toggleSpecimens}>
@@ -221,7 +199,7 @@ class Home extends React.Component {
               Click here to Close Sample Creative Scripts
             </a>
           )}
-          {console.log('showSpecimens is ', this.state.showSpecimens)}
+
           {this.state.showSpecimens ? (
             <div>
               <ul>
@@ -357,7 +335,7 @@ class Home extends React.Component {
           ) : null}
           {/* </div> */}
         </Modal>
-        {/* </CSSTransitionGroup> */}
+
         <Close>
           <p>
             For further information, including additional sample Creative
@@ -368,9 +346,6 @@ class Home extends React.Component {
           </p>
         </Close>
 
-        {/* <div id="contact">
-      <Form />
-    </div> */}
         <ContactModal>
           {!this.state.showContact ? null : (
             <div>
@@ -384,10 +359,60 @@ class Home extends React.Component {
         <SignatureBlock>
           <img className="signature" src={signature} alt="Mary Fitzpatrick" />
           <img id="shamrock" src={shamrock} />
+          {!this.state.showArt ? (
+            <div className="art">
+              <a onClick={this.toggleArt}>
+                P.S: If you would like to view some of my photography and some
+                of my son's artwork, click here.
+              </a>
+            </div>
+          ) : null}
         </SignatureBlock>
+
+        <Modal id="art">
+          {!this.state.showArt ? null : (
+            <div>
+              {/* <div style={{ width: '1000px' }}> */}
+              <Gallery
+                images={revisedPhotoArray}
+                backdropClosesModal={true}
+                enableLightbox={true}
+                isOpen={false}
+                lightboxWidth="1000"
+              />
+              {/* </div> */}
+              <a id="close" onClick={this.toggleArt}>
+                &lt;&lt; close art &gt;&gt;
+              </a>
+            </div>
+          )}
+          <p />
+        </Modal>
+        {/* <Gallery /> */}
       </div>
     );
   }
 }
 
 export default Home;
+
+export const query = graphql`
+  query ImagesQuery {
+    # the filter is usefull if you have multiple source-filesystem instances
+    # the name "images" is set in the gatsby-config
+    allFile(filter: { sourceInstanceName: { eq: "img" } }) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            # Specify the image processing specifications right in the query.
+            # Makes it trivial to update as your page's design changes.
+            sizes(maxWidth: 1600) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
+      }
+    }
+  }
+`;

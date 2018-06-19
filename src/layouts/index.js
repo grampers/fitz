@@ -13,6 +13,7 @@ const TemplateWrapper = styled.div`
   border-radius: 20px;
   max-width: 1170px;
   margin: 20px auto;
+  position: relative;
 `;
 
 // export default ({ children, data }) => {
@@ -37,7 +38,6 @@ export default class extends React.Component {
           ]}
         />
         <Header />
-        {/* {this.props.location.pathname === '/' ? <Header /> : ''} */}
         <Container>{this.props.children()}</Container>
       </TemplateWrapper>
     );
