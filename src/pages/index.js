@@ -233,7 +233,7 @@ class Home extends React.Component {
                   </p>
 
                   <p>
-                    Open 6 days a week ...with various locations throughth the
+                    Open 6 days a week ...with various locations throughout the
                     City. Check out GardenCity.com"
                   </p>
                 </li>
