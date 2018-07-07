@@ -30,6 +30,25 @@ const Modal = styled.div`
     font-style:normal;
     font-weight: 600;
   }
+  ${
+    '' /* .scriptBackground {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: url(${backgroundImage});
+  }
+  .backgroundInner {
+        padding-top: 63.35%;
+    display: block;
+    height: 0;
+  }*/
+  }
   p {
     padding-bottom: 0.5rem;
   }
@@ -182,10 +201,16 @@ class Home extends React.Component {
           </p>
           <p>
             I have 10 plus years of experience as a Copywriter in the Radio
-            business …and, an additional 13 years as a licensed Realtor, during
-            which time I managed all my own Marketing and copywriting …along
-            with some assistance from my son Corey. My experience includes both
-            Project-to-Project and Day to Day time lines.
+            business …which includes everything from Real Estate and Development
+            to Department Stores and their many different departments including
+            Cosmetics to Household Furniture and Appliances.{' '}
+          </p>
+
+          <p>
+            In addition I have 13 years as a licensed Realtor, during which time
+            I managed my own Marketing and Copywriting...along with some design
+            assistance from my son Corey. Also, my experience includes both
+            Project to Project and Day to Day Times Lines.
           </p>
         </PrimaryContent>
 
@@ -210,9 +235,16 @@ class Home extends React.Component {
                     season approaches… for all of us garden lovers.
                   </p>
                   <p />
+                  {/* <div  */}
+                  // className="scriptBackground"
+                  {/* > */}
                   <p>
+                    {/* <img src={backgroundImage} /> */}
                     "There’s Something Special about{' '}
-                    <span style={{ fontWeight: 'bold' }}> Garden City!</span>{' '}
+                    <span style={{ fontWeight: 'bold' }}>
+                      {' '}
+                      Garden City!
+                    </span>{' '}
                     Garden lovers everywhere experience an Awakening as they
                     stroll through each and every row of flower and vegetable
                     plantings….
@@ -231,11 +263,11 @@ class Home extends React.Component {
                     , that turns the Ordinary into the Extra-ordinary for Garden
                     Lovers!!
                   </p>
-
                   <p>
                     Open 6 days a week ...with various locations throughout the
                     City. Check out GardenCity.com"
                   </p>
+                  {/* </div> */}
                 </li>
                 <li>
                   <p className="intro">
@@ -306,6 +338,8 @@ class Home extends React.Component {
                   </p>
 
                   <p />
+                  {/* <div className="scriptBackground">
+                    <div className="backgroundInner"> */}
                   <p>
                     Hello Room…I’m the “Shutter-Man”…I’m the “Guy”… that sets
                     the mood in your room. I regulate the Light…I show-off your
@@ -326,6 +360,8 @@ class Home extends React.Component {
                     …located on Blanchard & Cloverdale. You can also check out
                     their Web site at BlairsWindowTreatments.ca.
                   </p>
+                  {/* </div>
+                  </div> */}
                 </li>
               </ul>
               <a id="close" onClick={this.toggleSpecimens}>
