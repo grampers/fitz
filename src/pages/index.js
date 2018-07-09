@@ -23,31 +23,13 @@ const Modal = styled.div`
   background-color: #ffffcc;
   padding: 30px;
   padding-top: 0;
-  ${'' /* padding-bottom: 0;*/}
   line-height:200%;
 
   .intro {
     font-style:normal;
     font-weight: 600;
   }
-  ${
-    '' /* .scriptBackground {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    font-size: 0;
-    line-height: 0;
-    vertical-align: middle;
-    background-size: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-image: url(${backgroundImage});
-  }
-  .backgroundInner {
-        padding-top: 63.35%;
-    display: block;
-    height: 0;
-  }*/
+
   }
   p {
     padding-bottom: 0.5rem;
@@ -236,15 +218,11 @@ class Home extends React.Component {
                   </p>
                   <p />
                   {/* <div  */}
-                  // className="scriptBackground"
+                  {/* className="scriptBackground" */}
                   {/* > */}
                   <p>
-                    {/* <img src={backgroundImage} /> */}
                     "There’s Something Special about{' '}
-                    <span style={{ fontWeight: 'bold' }}>
-                      {' '}
-                      Garden City!
-                    </span>{' '}
+                    <span style={{ fontWeight: 'bold' }}> Garden City!</span>{' '}
                     Garden lovers everywhere experience an Awakening as they
                     stroll through each and every row of flower and vegetable
                     plantings….
@@ -360,8 +338,6 @@ class Home extends React.Component {
                     …located on Blanchard & Cloverdale. You can also check out
                     their Web site at BlairsWindowTreatments.ca.
                   </p>
-                  {/* </div>
-                  </div> */}
                 </li>
               </ul>
               <a id="close" onClick={this.toggleSpecimens}>
